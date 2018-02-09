@@ -32,43 +32,45 @@ h1{
 <img src="" class="w3-circle" alt="사람">
 <h2><b>회원가입</b></h2>
 	<form class="w3-container" method="post" name="mJoinform" 
-	action="<%=request.getContextPath()%>/membership/mwritePro.jsp">
+	action="<%=request.getContextPath()%>/membership/joinPro.jsp">
 		<div class="w3-section">
 			<b>아이디</b>
 			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="id를 입력하세요."
-			name="userid">
+			name="memberid">
 			
 			<b>비밀번호</b>
 			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="pw를 입력하세요."
-			name="userpw1">
+			name="passwd">
 			
 			<b>비밀번호 재확인</b>
 			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="pw를 입력하세요."
-			name="userpw2">
+			name="passwd">
 			
 			
 			<b>이름</b>
 			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이름을 입력하세요."
-			name="username">
+			name="name">
 			
 	
 			<b>E-MAIL</b>
 			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이메일을 입력하세요."
-			name="useremail">
+			name="email">
 			
 			<b>휴대전화번호</b>
 			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="전화번호를 입력하세요."
-			name="userphone">
+			name="phone">
 			
 		</div>
-	</form>
+	
 </div>
     </div>
 <center>
 <br>
-<div class="w3-blue w3-margin-top w3-animate-zoom" style="max-width:800px;">
-      <h2>가입하기</h2>
+<div class="w3-blue w3-margin-top w3-animate-zoom" style="max-width:500px; height:100px">
+<br>      
+      <input type="submit" value="가입하기">
 </div>
 </center>
+</form>
 </body>
 </html>
