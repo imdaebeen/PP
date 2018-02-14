@@ -8,82 +8,166 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/PersonalProject/css/common.css" />
 <style type="text/css">
-#z{
-	background-image:url(z.jpg);
+#work{
+	width:1400px;
 }
+#mainbottom{
+	border-style:solid;
+	width:1600px;
+}
+#myNavbar{
+	width:1050px; margin:0 auto;position:relative;
+}
+#id{
+	 display:inline;
+}
+#content{
+	background-color:#F9FFFF;
+}
+
 </style>
 </head>
 <body>
 <!-- 상단 -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">금융상품 한눈에</a>
-    <div class="w3-right w3-hide-small">	
-      <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-search"></i>검색</a>
-      <a href="/PersonalProject/membership/mlist.jsp" class="w3-bar-item w3-button"><i class="fa fa-user"></i> 로그인</a>
-      <a href="/PersonalProject/membership/mJoinForm.jsp" class="w3-bar-item w3-button"><i class="fa fa-th"></i> 회원가입</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> 마이페이지</a>
-    </div>
-  </div>
-   <div class="w3-blue w3-center">
-    <a href="#saving" class="w3-bar-item w3-button">저축</a>
-    <a href="#stock" class="w3-bar-item w3-button">주식</a>
-    <a href="#fund" class="w3-bar-item w3-button">펀드</a>
-    <a href="#loan" class="w3-bar-item w3-button">대출</a>
-    <a href="#insurance" class="w3-bar-item w3-button">보험</a>
-    <a href="#board" class="w3-bar-item w3-button">게시판</a>
-    </div>
- </div>   
+<%@include file="/view/header.jsp"%>
 <!-- 본문 -->	
-<div class="w3-container" style="padding:128px" id="work" >
-	<div class="w3-row-padding" style="margin-top:30px;" id="z">
+<div id="content">
+<center>
+<div class="w3-container " style="padding:32px;" id="work">
+	<div class="w3-row-padding" style="margin-top:15px;">
 	<h3 class="w3-center">금융상품 한눈에</h3>
+	<br>
+	<br>
   	<p class="w3-center w3-large">Smart Financial Life</p>
-  	<div class="w3-col l4 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="background.jpg" alt="John" style="width:100%">
+  	<div class="w3-col l4 m4 w3-margin-bottom" style="height:480px">
+      <div class="w3-card1" style="height:478.25px">
+        <img src="pig.jpg" alt="부자되세요" style="width:100%">
+          <p class="w3-xxlarge">부자되세요!</p>
+          <br>
+          <p class="w3-medium">예금</p>
+          <br>
+          <p class="w3-medium">적금</p>
+          <br>
+          <p class="w3-medium">주식</p>
+          <br>
+          <p class="w3-medium">펀드</p>
+          <br>
+          <p class="w3-medium">금융절세상품</p>
+      </div>
+    </div>
+    <div class="w3-col l4 m4 w3-margin-bottom" style="height:480px">
+      <div class="w3-card1">
+        <img src="pig.jpg" alt="필요하세요" style="width:100%">
         <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p class="w3-xxlarge">필요하세요?</p>
+          <br>
+          <p class="w3-medium">주택담보대출</p>
+          <br>
+          <p class="w3-medium">전세자금대출</p>
+          <br>
+          <p class="w3-medium">개인신용대출</p>
+          <br>
+          <p class="w3-medium">중금리신용대출</p>
+          <br>
+          <p class="w3-medium">주택금융공사대출</p>
+          <br>
+          <p class="w3-medium">신용/체크카드</p>
         </div>
       </div>
     </div>
-    <div class="w3-col l4 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="background.jpg" alt="John" style="width:100%">
+    <div class="w3-col l4 m4 w3-margin-bottom" style="height:480px">
+      <div class="w3-card1" style="height:478.25px">
+        <img src="pig.jpg" alt="준비하세요" style="width:100%">
         <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
-        </div>
-      </div>
-    </div>
-    <div class="w3-col l4 m6 w3-margin-bottom">
-      <div class="w3-card">
-        <img src="background.jpg" alt="John" style="width:100%">
-        <div class="w3-container">
-          <h3>John Doe</h3>
-          <p class="w3-opacity">CEO & Founder</p>
-          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
-          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+          <p class="w3-xxlarge">준비하세요!</p>
+          <br>
+          <p class="w3-medium">연금저축</p>
+          <br>
+          <p class="w3-medium">퇴직연금</p>
+          <br>
+          <p class="w3-medium">실손의료보험</p>
+          <br>
+          <p class="w3-medium">자동차보험</p>
         </div>
       </div>
     </div>
 </div>
-<!-- 하단 -->
-<footer class="w3-center w3-white w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
+</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+<!-- 하단부 링크 -->
+	<br>
+	<br>
+  <div class="board_wrap">
+    <!-- 공지사항 s-->
+    <div class="notice_area">
+      <strong>공지사항</strong>
+      <a href="#" class="btn_more">더보기</a>
+      <ul>
+        <li>
+          <a href="#">
+            <span class="txt">시스템 정기점검 공지시스템 정기점검 공지시스템 정기점검 공지</span>
+            <span class="date">2018.02.12</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="txt">시스템 정기점검 공지</span>
+            <span class="date">2018.02.12</span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+    <!-- 공지사항 e-->
+
+    <!-- 비교공시 서비스 이용시 유의점 s -->
+    <div class="service_area">
+      <div class="tit_area">
+        <strong>인기 금융상품</strong>&nbsp;&nbsp;
+      </div>
+      <div class="tit2_area">
+        <strong>재테크 뉴스정보</strong>
+      </div>
+      <ul>
+        <li><a href="#">자주하는질문</a></li>
+        <li><a href="#">금융교육센터</a></li>
+        <li><a href="#">연금포털</a></li>
+        <li><a href="#">금융용어사전</a></li>
+        <li><a href="#">금융회사핵심경영통계</a></li>
+        <li><a href="#">보험다모아</a></li>
+      </ul>
+    </div>
     
   </div>
-  <address>서울특별시 영등포구 여의대로 38(우 : 07321) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표전화 : 02-3145-5114</address>
-  <p>COPYRIGHT(C) FINANCIAL SUPERVISORY SERVICE. ALL RIGHTS RESERVED.</p>
-	
-</footer>
+ <br>
+ <br>
+<!-- 슬라이스 하단 -->
+<div class="w3-content w3-display-container" id="z">
+  <img class="mySlides" src="1_logo.gif" style="width:150px">
+  <img class="mySlides" src="2_logo.gif" style="width:150px">
+  <img class="mySlides" src="3_logo.jpg" style="width:150px">
+  <img class="mySlides" src="4_logo.png" style="width:150px">
 
+  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+</center>
+<br>
+</div>
+<!-- 하단 -->
+<%@include file="/view/footer.jsp"%>
 </body>
 </html>

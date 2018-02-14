@@ -59,7 +59,7 @@
 		</tr>
 	</table>
 			<input type="submit" value="회원수정" >
-			<input type="button" value="회원삭제" onclick="document.location.href='deletePro.jsp?num=<%=num%>&passwd=<%=article.getPasswd()%>'">
+			<input type="button" value="회원탈퇴" onclick="document.location.href='deleteform.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
   			<input type="reset" value="다시작성">
  			<input type="button" value="목록보기" onclick="document.location.href='mList.jsp?pageNum=<%=pageNum%>'">
 			

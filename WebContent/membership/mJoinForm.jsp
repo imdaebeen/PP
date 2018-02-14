@@ -11,7 +11,7 @@ h2{
 	text-align:center;
 }
 body{
-	background-color:#E6E6E6;
+	background-color:#F9FFFF;
 }
 h1{
 	color:blue;

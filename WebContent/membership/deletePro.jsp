@@ -20,8 +20,8 @@
 		int check=dbPro.deleteArticle(num,passwd,boardid);
 		if(check==1){
 	%>
-	
-		<meta http-equiv="Refresh" content="0;url=list.jsp?pageNum=<%=pageNum %>">
+		
+		<meta http-equiv="Refresh" content="0;url=mList.jsp?pageNum=<%=pageNum %>">
 <%
 	}else {
 %>	

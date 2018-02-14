@@ -89,13 +89,13 @@
 			endPage = pageCount;
 		if(startPage > bottomLine){	
 		%>
-		<a href="mlist.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
+		<a href="mList.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
 		<% 
 			} 
 		
 			for(int i = startPage; i<= endPage; i++ ){ 
 		%>
-			<a href="mlist.jsp?pageNum=<%=i%>">
+			<a href="mList.jsp?pageNum=<%=i%>">
 			<%
 			if(i != currentPage) {
 				out.print("["+i+"]");
@@ -108,7 +108,7 @@
 			}
 		if(endPage < pageCount){ 
 		%>
-		<a href="mlist.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
+		<a href="mList.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
 		<% 
 			}
 		}
