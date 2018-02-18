@@ -84,10 +84,11 @@
     </div>
   </div>
   <div class="w3-dropdown-hover">
-    <button class="w3-button w3-large w3-padding w3-padding-large">게시판</button>
+    <button class="w3-button w3-large w3-padding w3-padding-large">알림마당</button>
     <div class="w3-dropdown-content w3-card-4 w3-large">
       <a href="/PersonalProject/view/board1.jsp" class="w3-bar-item w3-button">공지사항</a>
-      <a href="/PersonalProject/view/board2.jsp" class="w3-bar-item w3-button">자유게시판</a>
+      <a href="/PersonalProject/view/board2.jsp" class="w3-bar-item w3-button">자주하는질문</a>
+       <a href="/PersonalProject/view/board3.jsp" class="w3-bar-item w3-button">협회별비교공시</a>
     </div>
   </div>
  </div>

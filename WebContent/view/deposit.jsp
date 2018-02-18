@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,12 +18,16 @@ ul > li{
 }
 li{
 	list-style:none;
-}	
+}
+#font{
+	color:red;
+}
+
 </style>
 </head>
 <body>
 <%@include file="/view/header.jsp"%>
-<div class="w3-row">
+<div class="w3-row" id="up">
   <div class="w3-third w3-container w3-white w3-right-align">
     <h2><b>정기 예금</b></h2> 
   </div>
@@ -57,7 +60,7 @@ li{
 </div>
 <hr>
 <center>
-<div class="w3-border" style="width:980px">
+<div class="w3-border" style="width:1200px">
 <div class="w3-row w3-padding-16" style="border-bottom: 1px dashed #E6E6E6">
 
 <div class="w3-third w3-container">
@@ -113,8 +116,11 @@ li{
 <button class="w3-button w3-blue">금융상품 검색</button>&nbsp;
 </div>
 <div class="w3-padding-48 w3-left-align"style="height:958" id="notice">
-		<div class="txt_notice-text-right"><span class="ft-color-admin">*&nbsp;본&nbsp;사이트에서는&nbsp;최신정보&nbsp;제공을&nbsp;위해&nbsp;노력하고&nbsp;있으나,&nbsp;금융회사의&nbsp;상품별&nbsp;이자율&nbsp;등&nbsp;
-		거래조건이&nbsp;수시로&nbsp;변경되어&nbsp;지연공시될&nbsp;수&nbsp;있으므로&nbsp;거래전&nbsp;반드시&nbsp;해당&nbsp;금융회사에&nbsp;문의하시기&nbsp;바랍니다.</span><br><br>
+		<div class="txt_notice-text-right">
+		<span class="ft-color-admin">
+		<div id="font">*&nbsp;본&nbsp;사이트에서는&nbsp;최신정보&nbsp;제공을&nbsp;위해&nbsp;노력하고&nbsp;있으나,&nbsp;금융회사의&nbsp;상품별&nbsp;이자율&nbsp;등&nbsp;
+		거래조건이&nbsp;수시로&nbsp;변경되어&nbsp;지연공시될&nbsp;수&nbsp;있으므로&nbsp;거래전&nbsp;반드시&nbsp;해당&nbsp;금융회사에&nbsp;문의하시기&nbsp;바랍니다.</span>
+		</div><br><br>
 		*&nbsp;세전&nbsp;이자율은&nbsp;우대조건을&nbsp;반영하지&nbsp;않은&nbsp;기본금리입니다.&nbsp;상세정보의&nbsp;우대조건에&nbsp;해당시&nbsp;보다&nbsp;높은&nbsp;이자율이&nbsp;적용될&nbsp;수&nbsp;있습니다.
 		<br><br>*&nbsp;세후&nbsp;이자율은&nbsp;이자소득&nbsp;원천징수세&nbsp;15.4%(소득세&nbsp;14%,&nbsp;지방소득세&nbsp;1.4%)를&nbsp;차감한&nbsp;금리입니다.
 		<br><br>*&nbsp;세후이자&nbsp;및&nbsp;세후&nbsp;실수령액은&nbsp;원단위&nbsp;절사,&nbsp;
@@ -129,16 +135,26 @@ li{
   </div>
 <hr>
 <div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
-    <h4>결과내 검색</h4>
-    <div>
-    	<select class="w3-select" name="option">
+	<div class="w3-row w3-left-alin">
+	<div class="w3-twothird w3-container">
+	<div class="w3-container w3-quarter"style="width:120px">	
+    <h6>결과내 검색</h6>
+    </div>
+	<div class="w3-container w3-quarter" style="width:120px">
+    	<select class="w3-select w3-border" name="option" style="width:100px">
   		<option value="" disabled selected>전체</option>
   		<option value="1">금융상품명</option>
   		<option value="2">상품명</option>
   		<option value="3">상세정보</option>
 		</select>
+	</div>
+	<div class="w3-container w3-quarter">	
 		<span></span><input class="w3-input w3-border" type="text" placeholder="검색어를 입력하세요"></span>
+	</div>
+	<div class="w3-container w3-quarter">	
 		<span><button class="w3-button w3-blue">검색하기</button></span>
+	</div>	
+		</div>
     </div>
   </div>
  <div class="w3-padding-24 w3-left-align">
@@ -175,9 +191,16 @@ li{
     </tr>
   </table>
 </div>
-<div class="w3-border">
-	선택한비교상품
+<div class="w3-border" style="height:80px">
+	<br>
+	<div class="w3-row ">
+	<div class="w3-quarter w3-container w3-gray w3-center">
+	선택한<br>비교상품	
+	</div>
+	<div class="w3-threequarter w3-container w3-right-align">
 	<button class="w3-button w3-blue">금융상품 검색</button>&nbsp;
+	</div>
+	</div>
 </div>
 </div>
 <div class="w3-row w3-padding-64" style="height:200px">

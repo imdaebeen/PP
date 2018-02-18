@@ -8,7 +8,18 @@
 </head>
 <body>
 <%@include file="/view/header.jsp"%>
-중금리신용대출
+<div class="w3-row" id="up">
+  <div class="w3-third w3-container w3-white w3-right-align">
+    <h2><b>중금리 신용대출</b></h2> 
+  </div>
+</div>  
+<hr>
+<center>
+<br>
+<div class="w3-padding-64">
+<img src="j.jpg">
+</div>
+</center>
 <%@include file="/view/footer.jsp"%>
 </body>
 </html>
