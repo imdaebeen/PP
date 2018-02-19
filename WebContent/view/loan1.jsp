@@ -88,7 +88,7 @@ LTV<br/>
 주택종류
  <div>
     	<select class="w3-select w3-light-grey w3-border" name="option" >
-  		<option value="" disabled selected>전체</option>
+  		<option value="" selected>전체</option>
   		<option value="1">아파트</option>
   		<option value="2">오피스텔</option>
 		</select>
@@ -98,7 +98,7 @@ LTV<br/>
 금리방식<br/>
 	<div>
     	<select class="w3-select w3-light-grey w3-border" name="option">
-  		<option value="" disabled selected>전체</option>
+  		<option value="" selected>전체</option>
   		<option value="1"></option>
   		<option value="2"></option>
 		</select>
@@ -108,7 +108,7 @@ LTV<br/>
 상환방식<br/>
 	<div>
     	<select class="w3-select w3-light-grey w3-border" name="option">
-  		<option value="" disabled selected>전체</option>
+  		<option value="" selected>전체</option>
   		<option value="1"></option>
   		<option value="2"></option>
 		</select>
@@ -169,7 +169,7 @@ LTV<br/>
     </div>
 	<div class="w3-container w3-quarter" style="width:120px">
     	<select class="w3-select w3-border" name="option" style="width:100px">
-  		<option value="" disabled selected>전체</option>
+  		<option value="" selected>전체</option>
   		<option value="1">금융상품명</option>
   		<option value="2">상품명</option>
   		<option value="3">상세정보</option>

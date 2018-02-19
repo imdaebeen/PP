@@ -52,19 +52,35 @@ background-color:red;
 </div>
 </div>
 <br>
+
 <div class="w3-border" style="width:1200px">
-<div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
+	<br>
+<div class="w3-left-align" style="border-bottom: 1px dashed #E6E6E6">
+    <div class="w3-row">
+    <div class="w3-half w3-container">
     <h6>총 3건(1/1 page)</h6>
-    <div>
-    	<select class="w3-select" name="option">
-  		<option value="" disabled selected>제목</option>
+    </div>
+    <div class="w3-half w3-container w3-right-align">
+    <div class="w3-row">
+    	<div class="w3-quarter w3-container">
+    	<select class="w3-select w3-border" name="option" style="width:100px">
+  		<option value="" selected>제목</option>
   		<option value="1">내용</option>
   		<option value="2">제목+내용</option>
 		</select>
-		<span></span><input class="w3-input w3-border" type="text" placeholder="검색어를 입력하세요"></span>
+		</div>
+		<div class="w3-half w3-container">
+		<input class="w3-input w3-border" type="text" placeholder="검색어를 입력하세요">
+		</div>
+		<div class="w3-quarter w3-container">
 		<span><button class="w3-button w3-blue">검색하기</button></span>
+		</div>
+		</div>
     </div>
-  </div>
+ 	</div>
+	</div>
+	<br>
+	
  <div class="w3-padding-24 w3-left-align">
  <div class="w3-container w3-padding-24">
   <table class="w3-table w3-border">
@@ -113,6 +129,7 @@ background-color:red;
 		</ul>
 </div>
 </div>		
+</div>
 </div>
 </center>
 

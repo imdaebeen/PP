@@ -17,6 +17,22 @@ h1{
 	color:blue;
 	font-weight:900;
 }
+input[type=submit], input[type=reset] {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+}
+input[type=reset]:hover {
+    background-color: gray;  
+}
+input[type=submit]:hover{
+	background-color: gray; 
+}
 </style>
 </head>
 <body>
@@ -24,51 +40,33 @@ h1{
 <h1 class="w3-text-blue w3-animate-zoom w3-padding-24">금융상품한눈에</h1>
 </center>
 <br>
-
-<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:800px;">
-
-<div class="w3-container">
-
-<img src="" class="w3-circle" alt="사람">
-<h2><b>회원가입</b></h2>
+<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px;">
 	<form class="w3-container" method="post" name="mJoinform" 
 	action="<%=request.getContextPath()%>/membership/joinPro.jsp">
 		<div class="w3-section">
-			<b>아이디</b>
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="id를 입력하세요."
-			name="memberid">
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="아이디"
+			name="memberid"><br/>
 			
-			<b>비밀번호</b>
-			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="pw를 입력하세요."
-			name="passwd">
+			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="비밀번호"
+			name="passwd"><br/>
+		
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이름"
+			name="name"><br/>
 			
-			<b>비밀번호 재확인</b>
-			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="pw를 입력하세요."
-			name="passwd">
+			<input class="w3-input w3-border w3 padding-16" type="" placeholder="이메일"
+			name="email"><br/>
 			
-			
-			<b>이름</b>
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이름을 입력하세요."
-			name="name">
-			
-	
-			<b>E-MAIL</b>
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이메일을 입력하세요."
-			name="email">
-			
-			<b>휴대전화번호</b>
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="전화번호를 입력하세요."
-			name="phone">
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="전화번호"
+			name="phone"><br/>
 			
 		</div>
-	
 </div>
-    </div>
 <center>
 <br>
-<div class="w3-blue w3-margin-top w3-animate-zoom" style="max-width:500px; height:100px">
+<div class="w3-blue w3-margin-top w3-animate-zoom" style="max-width:300px; height:100px">
 <br>      
       <input type="submit" value="가입하기">
+      <input type="reset" value="다시작성"> 
 </div>
 </center>
 </form>

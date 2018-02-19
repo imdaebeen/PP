@@ -65,6 +65,7 @@ li{
     </div>
  	</div>
 	</div>
+	<br>
  <table id="customers">
   <tr class="w3-blue">
     <th>¹øÈ£</th>

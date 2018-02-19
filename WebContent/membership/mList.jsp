@@ -41,8 +41,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-  <div class="w3-container">
-	<h3>전체 회원수 : <%=count %>)</h3>
+  <div class="w3-container w3-center">
+  <h2>관리자페이지</h2>
+	<h3>(전체 회원수 : <%=count %>)</h3>
   <h2>한눈에 회원목록</h2>
   <hr>
   <%

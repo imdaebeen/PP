@@ -95,8 +95,8 @@
       </div>
     </div>
 </div>
-<div class="w3-panel w3-gray">
-    <h2 class="w3-opacity">Smart Financial Life</h2>
+<div class="w3-panel w3-gray w3-opacity">
+    <h2 class=""><strong>합리적인 금융상품의 선택!&nbsp;&nbsp;Smart Financial Life</strong></h2>
 </div>
 </div>
 <!-- 하단부 링크 -->
@@ -156,9 +156,16 @@
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
-</center>
+
 <br>
+<div>
+<a href="#" class="w3-button w3-blue w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up"></i>To the top</a>
 </div>
+</center>
+</div>
+
+
+<br>
 <!-- 하단 -->
 <%@include file="/view/footer.jsp"%>
 </body>

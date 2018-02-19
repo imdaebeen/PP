@@ -22,6 +22,9 @@ li{
 #op{
 background-color:red;
 }
+#font{
+	color:red;
+}
 
 </style>
 </head>
@@ -133,17 +136,14 @@ background-color:red;
 		<button class="w3-button w3-gray w3-hover-indigo">연금저축펀드</button>&nbsp;
 	</div>
 <div class="w3-padding-48">
-<button class="w3-button w3-blue">금융상품 검색</button>&nbsp;
+<button class="w3-button w3-blue" style="font-size: 30px">금융상품 검색</button>&nbsp;
 </div>
 <div class="w3-padding-48 w3-left-align"style="height:958" id="notice">
-		<div class="txt_notice-text-right"><span class="ft-color-admin">*&nbsp;본&nbsp;사이트에서는&nbsp;최신정보&nbsp;제공을&nbsp;위해&nbsp;노력하고&nbsp;있으나,&nbsp;금융회사의&nbsp;상품별&nbsp;이자율&nbsp;등&nbsp;
-		거래조건이&nbsp;수시로&nbsp;변경되어&nbsp;지연공시될&nbsp;수&nbsp;있으므로&nbsp;거래전&nbsp;반드시&nbsp;해당&nbsp;금융회사에&nbsp;문의하시기&nbsp;바랍니다.</span><br><br>
-		*&nbsp;세전&nbsp;이자율은&nbsp;우대조건을&nbsp;반영하지&nbsp;않은&nbsp;기본금리입니다.&nbsp;상세정보의&nbsp;우대조건에&nbsp;해당시&nbsp;보다&nbsp;높은&nbsp;이자율이&nbsp;적용될&nbsp;수&nbsp;있습니다.
-		<br><br>*&nbsp;세후&nbsp;이자율은&nbsp;이자소득&nbsp;원천징수세&nbsp;15.4%(소득세&nbsp;14%,&nbsp;지방소득세&nbsp;1.4%)를&nbsp;차감한&nbsp;금리입니다.
-		<br><br>*&nbsp;세후이자&nbsp;및&nbsp;세후&nbsp;실수령액은&nbsp;원단위&nbsp;절사,&nbsp;
-		복리의&nbsp;경우&nbsp;월복리&nbsp;가정&nbsp;등을&nbsp;적용하여&nbsp;비교&nbsp;편의를&nbsp;위해&nbsp;예시한&nbsp;계산금액으로&nbsp;실제&nbsp;실수령액과&nbsp;차이가&nbsp;발생할&nbsp;
-		수&nbsp;있으므로&nbsp;상품&nbsp;가입시&nbsp;해당&nbsp;금융회사에&nbsp;정확한&nbsp;금액을&nbsp;확인하시기&nbsp;바랍니다.&nbsp;
-		(자유적립식&nbsp;적금상품은&nbsp;적금액이&nbsp;일정하지&nbsp;않으므로&nbsp;산출하지&nbsp;않습니다.) </div>
+		<div class="txt_notice-text-right"><span class="ft-color-admin"><div id="font">*&nbsp;본&nbsp;사이트에서는&nbsp;최신정보&nbsp;제공을&nbsp;위해&nbsp;노력하고&nbsp;있으나,&nbsp;금융회사의&nbsp;상품별&nbsp;이자율&nbsp;등&nbsp;거래조건이&nbsp;수시로&nbsp;변경되어&nbsp;지연공시될&nbsp;수&nbsp;있으므로&nbsp;거래전&nbsp;반드시&nbsp;해당&nbsp;금융회사에&nbsp;문의하시기&nbsp;바랍니다.</span></div>
+		<br>*&nbsp;'판매후&nbsp;연평균수익률'은&nbsp;과거&nbsp;수익률로서&nbsp;향후&nbsp;수익률을&nbsp;보장하는&nbsp;것이&nbsp;아니며,&nbsp;연중&nbsp;판매&nbsp;개시된&nbsp;경우&nbsp;판매일&nbsp;이후&nbsp;평균수익률입니다.
+		<br><br>*&nbsp;'예상&nbsp;월&nbsp;연금액'&nbsp;산정시&nbsp;적용되는&nbsp;수익률은&nbsp;향후&nbsp;수익률을&nbsp;확정할&nbsp;수&nbsp;없으므로&nbsp;일정한&nbsp;가정수익률(보험업감독업무시행세칙상&nbsp;평균공시이율)을&nbsp;모든&nbsp;상품에&nbsp;동일하게&nbsp;적용하되,&nbsp;해당상품의&nbsp;운용보수(수수료,&nbsp;사업비)&nbsp;등이&nbsp;차감된다는&nbsp;가정하에&nbsp;산정한&nbsp;예시금액임에&nbsp;유의하시기&nbsp;바랍니다.&nbsp;
+		<br><br>*&nbsp;연금저축신탁,&nbsp;연금저축펀드의&nbsp;경우&nbsp;실적배당상품이므로&nbsp;향후&nbsp;수익률에&nbsp;따라&nbsp;예상&nbsp;월연금액이&nbsp;크게&nbsp;달라질&nbsp;수&nbsp;있으며,&nbsp;
+		<br>&nbsp;&nbsp;&nbsp;<font color = "red">연금저축보험은&nbsp;사업비&nbsp;등&nbsp;수수료가&nbsp;판매초기에&nbsp;차감되므로&nbsp;판매후&nbsp;초기&nbsp;연평균수익률이&nbsp;(-)로&nbsp;보여지나,&nbsp;공시이율&nbsp;또는&nbsp;최저보증이율로&nbsp;운용되므로&nbsp;예상&nbsp;월연금액은&nbsp;(+)로&nbsp;나타날&nbsp;수&nbsp;있습니다.</font></div>
 	</div>
 <div class="w3-row">
   <div class="w3-third w3-container w3-left-align" >
@@ -152,16 +152,26 @@ background-color:red;
   </div>
 <hr>
 <div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
-    <h4>결과내 검색</h4>
-    <div>
-    	<select class="w3-select" name="option">
-  		<option value="" disabled selected>전체</option>
+	<div class="w3-row w3-left-alin">
+	<div class="w3-twothird w3-container">
+	<div class="w3-container w3-quarter"style="width:120px">	
+    <h6>결과내 검색</h6>
+    </div>
+	<div class="w3-container w3-quarter" style="width:120px">
+    	<select class="w3-select w3-border" name="option" style="width:100px">
+  		<option value="" selected>전체</option>
   		<option value="1">금융상품명</option>
   		<option value="2">상품명</option>
   		<option value="3">상세정보</option>
 		</select>
+	</div>
+	<div class="w3-container w3-quarter">	
 		<span></span><input class="w3-input w3-border" type="text" placeholder="검색어를 입력하세요"></span>
+	</div>
+	<div class="w3-container w3-quarter">	
 		<span><button class="w3-button w3-blue">검색하기</button></span>
+	</div>	
+		</div>
     </div>
   </div>
  <div class="w3-padding-24 w3-left-align">
@@ -198,9 +208,16 @@ background-color:red;
     </tr>
   </table>
 </div>
-<div class="w3-border">
-	선택한비교상품
+<div class="w3-border" style="height:80px">
+	<br>
+	<div class="w3-row ">
+	<div class="w3-quarter w3-container w3-gray w3-center">
+	선택한<br>비교상품	
+	</div>
+	<div class="w3-threequarter w3-container w3-right-align">
 	<button class="w3-button w3-blue">금융상품 검색</button>&nbsp;
+	</div>
+	</div>
 </div>
 </div>
 <div class="w3-row w3-padding-64" style="height:200px">
