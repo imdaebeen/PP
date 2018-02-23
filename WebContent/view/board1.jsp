@@ -1,5 +1,40 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="jboard.BoardDataBean"%>
+<%@page import="java.util.List"%>
+<%@page import="jboard.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+	request.setCharacterEncoding("euc-kr");
+%>
+<%
+	String boardid = request.getParameter("boarid");
+	if(boardid==null) boardid ="1";
+%>
+<%
+	int pageSize =5;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String pageNum = request.getParameter("pageNum");
+	if(pageNum == null || pageNum == ""){
+	pageNum = "1";
+	}
+	
+	int currentPage = Integer.parseInt(pageNum);
+	int startRow = (currentPage - 1)*pageSize+1;
+	int endRow = currentPage*pageSize;
+	int count = 0;
+	int number = 0;
+	
+	List articleList = null;
+
+	BoardDBBean dbpro = BoardDBBean.getInstance();
+	count = dbpro.getArticleCount(boardid);
+	if(count > 0){
+		articleList = dbpro.getArticles(startRow, endRow, boardid);
+	}
+	number = count -(currentPage-1)*pageSize;
+	
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -40,11 +75,19 @@ li{
 <hr>
 <center>
 <div class="w3-padding-64" style="width:980px">
-
+	<%
+		if(count==0){
+	%>
+		<table class="w3-table-bordered" style="width:900px">
+			<tr class="w3-grey">
+			<td align="center">회원이 아무도 없어용</td>
+		</table>
+  
+	<% }else{ %>
 	<div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>총 3건(1/1 page)</h6>
+    <h6>총 <%=count%>건(1/1 page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -68,24 +111,72 @@ li{
 	<br>
  <table id="customers">
   <tr class="w3-blue">
-    <th>번호</th>
-    <th>제목</th>
-    <th>등록일</th>
-    <th>조회수</th>
+    <td>번호</td>
+    <td>제목</a></td>
+    <td>등록일</td>
+    <td>조회수</td>
   </tr>
+  <% 
+		for(int i=0;i<articleList.size();i++) { 
+			BoardDataBean article = (BoardDataBean)articleList.get(i);
+   %>
   <tr>
-    <td>15</td>
-    <td>시스템 정기점검 공지(2.1(목) 19:00 ~ 22:00)</td>
-    <td>2018.02.01</td>
-    <td>7496</td>
+    <td><%=number--%></td>
+    <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getSubject()%></td>
+    <td><%=sdf.format(article.getReg_date())%></td>
+    <td><%=article.getReadcount() %></td>
   </tr>
-  <tr>
-    <td>14</td>
-    <td>중금리 신용대출 비교공시 신설 안내</td>
-    <td>2018.02.01</td>
-    <td>5000</td>
-  </tr>
+  <%
+	}
+  %>
 	</table>
+  <% 
+	if(session.getAttribute("MEMBERID") == null){
+	
+	}else{
+		if(session.getAttribute("MEMBERID").equals("admin")){
+	%>	
+	<div class="w3-right-align">
+	<a href="/PersonalProject/board/boardForm.jsp" class="w3-button w3-wide">글쓰기</a>
+	</div>
+	<%} } }%>
+<div class="w3-center">
+		<%
+		int bottomLine =3; 
+		if(count > 0){
+		int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
+		int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
+		int endPage = startPage + bottomLine -1;
+		
+		if(endPage > pageCount) 
+			endPage = pageCount;
+		if(startPage > bottomLine){	
+		%>
+		<a href="board1.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
+		<% 
+			} 
+		
+			for(int i = startPage; i<= endPage; i++ ){ 
+		%>
+			<a href="mList.jsp?pageNum=<%=i%>">
+			<%
+			if(i != currentPage) {
+				out.print("["+i+"]");
+			}else{ 
+				out.print("<font color='red'>["+i+"]</font>");
+			}
+			%>
+			</a>
+		<%
+			}
+		if(endPage < pageCount){ 
+		%>
+		<a href="board1.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
+		<% 
+			}
+		}
+		%>
+</div>
 <div class="w3-padding-32">
 	<div class="w3-border" style="background-color:#B2CCFF">
 		<ul>

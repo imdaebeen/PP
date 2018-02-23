@@ -42,7 +42,7 @@
 	<br>
   	<div class="w3-col l4 m4 w3-margin-bottom">
       <div class="w3-card" style="height:750px">
-        <img src="pig.jpg" alt="부자되세요" style="width:100%">
+        <img src="../view/image/pig.jpg" alt="부자되세요" style="width:100%">
         <div class="w3-container">
           <p class="w3-xxlarge">부자되세요!</p>
           <br>
@@ -60,7 +60,7 @@
     </div>
     <div class="w3-col l4 m4 w3-margin-bottom">
       <div class="w3-card" style="height:750px">
-        <img src="H.JPG" alt="필요하세요" style="width:100%">
+        <img src="../view/image/H.JPG" alt="필요하세요" style="width:100%">
         <div class="w3-container">
           <p class="w3-xxlarge">필요하세요?</p>
           <br>
@@ -80,7 +80,7 @@
     </div>
     <div class="w3-col l4 m4 w3-margin-bottom">
       <div class="w3-card" style="height:750px">
-        <img src="U.JPG" alt="준비하세요" style="width:100%">
+        <img src="../view/image/U.JPG" alt="준비하세요" style="width:100%">
         <div class="w3-container">
           <p class="w3-xxlarge">준비하세요!</p>
           <br>
@@ -148,10 +148,10 @@
  <br>
 <!-- 슬라이스 하단 -->
 <div class="w3-content w3-display-container" id="z">
-  <img class="mySlides" src="1_logo.gif" style="width:150px">
-  <img class="mySlides" src="2_logo.gif" style="width:150px">
-  <img class="mySlides" src="3_logo.jpg" style="width:150px">
-  <img class="mySlides" src="4_logo.png" style="width:150px">
+  <img class="mySlides" src="../view/image/1_logo.gif" style="width:150px">
+  <img class="mySlides" src="../view/image/2_logo.gif" style="width:150px">
+  <img class="mySlides" src="../view/image/3_logo.jpg" style="width:150px">
+  <img class="mySlides" src="../view/image/4_logo.png" style="width:150px">
 
   <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>

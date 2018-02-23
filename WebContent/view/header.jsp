@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<% request.setCharacterEncoding("euc-kr"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,6 +9,11 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript">
+function logout() {
+	 location.href = "../membership/logout.jsp";
+}
+</script>
 <style type="text/css">
 #work{
 	width:1400px;
@@ -29,13 +35,32 @@
 </head>
 <body>
 <header style="min-width:1600px">
-  <div class="c Gray w3-card" id="myNavbar">
-    <a href="/PersonalProject/view/Main.jsp" class="w3-bar-item w3-button w3-wide">금융상품 한눈에</a>
-    <div class="w3-right">		
-      <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-search"></i>검색</a>
-      <a href="/PersonalProject/membership/login.jsp" class="w3-bar-item w3-button"><i class="fa fa-user"></i> 로그인</a>
-      <a href="/PersonalProject/membership/mJoinForm.jsp" class="w3-bar-item w3-button"><i class="fa fa-th"></i> 회원가입</a>
-      <a href="#pricing" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> 마이페이지</a>
+  <div class="" id="myNavbar">
+  <div class="w3-row">
+  	<div class="w3-third w3-container w3-right-align">
+    <a href="/PersonalProject/view/Main.jsp" class="w3-button w3-wide">금융상품 한눈에</a>
+    </div>
+    <div class="w3-container w3-twothird w3-right-align">
+      <a href="#about" class="w3-button"><img src="../view/image/magnify.png"></i>검색</a>
+<%
+	if(session.getAttribute("MEMBERID") == null){
+%>
+      <a href="/PersonalProject/membership/login.jsp" class="w3-bar-item w3-button"><img src="../view/image/account.png"></i> 로그인</a>
+<% }else{ %>
+	  <a href = javascript:logout() class="w3-bar-item w3-button"><img src="../view/image/account.png"> <%=session.getAttribute("MEMBERID")%> 로그아웃</a>
+	  <%
+	  	if(session.getAttribute("MEMBERID").equals("admin")){
+	  %>  		
+	  <a href="../view/adminpage.jsp" class="w3-bar-item w3-button"><img src="../view/image/account-settings-variant.png"> 관리자페이지</a>
+	  <%	
+	  	}else{
+	  %>
+	  <a href="#" class="w3-bar-item w3-button"><img src="../view/image/currency-krw.png"></i> 마이페이지</a>
+	  <% } %>
+	 
+<%	} %>	  	      
+      <a href="/PersonalProject/membership/mJoinForm.jsp" class="w3-bar-item w3-button"><img src="../view/image/account-plus.png"></i> 회원가입</a>
+    </div>
     </div>
   </div>
  <div class="w3-container w3-center w3-blue"> 
@@ -93,6 +118,7 @@
   </div>
  </div>
 </div>
+
 </header>
 </body>
 </html>

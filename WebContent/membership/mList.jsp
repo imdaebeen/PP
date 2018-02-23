@@ -39,23 +39,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style type="text/css">
+td,th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
+body{
+	background-color:#F9FFFF;
+}
+</style>
 </head>
 <body>
-  <div class="w3-container w3-center">
-  <h2>관리자페이지</h2>
-	<h3>(전체 회원수 : <%=count %>)</h3>
-  <h2>한눈에 회원목록</h2>
-  <hr>
+  <div class="w3-container w3-center w3-margin-top">
+  <strong><h2 class="w3-text-blue"><b>한눈에 회원목록</b></h2></strong>
+  <strong><h3 class="w3-text-blue"><b>(전체 회원수 : <font color="black"><%=count %></font>)</b></h3></strong>
   <%
 		if(count==0){
 	%>
-		<table class="w3-table-bordered" width="700">
+		<table class="w3-table-bordered" style="width:900px">
 			<tr class="w3-grey">
 			<td align="center">회원이 아무도 없어용</td>
 		</table>
   
 	<% }else{ %>
-  <table class="w3-table w3-bordered" width="700">
+  <center>
+  <hr style="width:900px">
+  <table class="w3-table w3-bordered" style="width:900px">
     <tr class="w3-blue">
       <td>번호</td>
       <td>아이디</td>
@@ -69,13 +84,14 @@
 	%>	    
     <tr>
       <td><%=number--%></td>
-      <td><%=article.getMemberid()%></td>
-      <td><a href="mcontent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getName()%></td>
+      <td><a href="mcontent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getMemberid()%></td>
+      <td><%=article.getName()%></td>
       <td><%=article.getEmail()%></td>
       <td><%=article.getPhone()%></td>
     </tr>
     	<% } %>
   </table>
+  </center>
   	<% } %>
 </div>
 <div class="w3-center">

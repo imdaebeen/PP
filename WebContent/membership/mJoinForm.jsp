@@ -14,7 +14,6 @@ body{
 	background-color:#F9FFFF;
 }
 h1{
-	color:blue;
 	font-weight:900;
 }
 input[type=submit], input[type=reset] {
@@ -39,34 +38,65 @@ input[type=submit]:hover{
 <center>
 <h1 class="w3-text-blue w3-animate-zoom w3-padding-24">금융상품한눈에</h1>
 </center>
-<br>
+<br>	
 <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px;">
+	<div class="w3-center">
+	<img src="../membership/image/don.png">
+	</div>
 	<form class="w3-container" method="post" name="mJoinform" 
 	action="<%=request.getContextPath()%>/membership/joinPro.jsp">
 		<div class="w3-section">
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="아이디"
-			name="memberid"><br/>
-			
-			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="비밀번호"
-			name="passwd"><br/>
-		
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이름"
-			name="name"><br/>
-			
-			<input class="w3-input w3-border w3 padding-16" type="" placeholder="이메일"
-			name="email"><br/>
-			
-			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="전화번호"
-			name="phone"><br/>
+		<div class="w3-row">
+		<div class="w3-container w3-quarter w3-right-align" style="width:30px">
+			<strong><font color="red">*</font></strong>
+		</div>
+		<div class="w3-container w3-threequarter w3-left-align">	
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="아이디" name="memberid"><br/>
+		</div>
+		</div>
+		<div class="w3-row">
+		<div class="w3-container w3-quarter w3-right-align" style="width:30px">
+			<strong><font color="red">*</font></strong>
+		</div>
+		<div class="w3-container w3-threequarter w3-left-align">	
+			<input class="w3-input w3-border w3 padding-16" type="password" placeholder="비밀번호" name="passwd"><br/>
+		</div>
+		</div>
+		<div class="w3-row">
+		<div class="w3-container w3-quarter w3-right-align" style="width:30px">
+			<strong><font color="red">*</font></strong>
+		</div>
+		<div class="w3-container w3-threequarter w3-left-align">	
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이름" name="name"><br/>
+		</div>
+		</div>
+		<div class="w3-row">
+		<div class="w3-container w3-quarter w3-right-align" style="width:30px">
 			
 		</div>
+		<div class="w3-container w3-threequarter w3-left-align">	
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="이메일" name="email"><br/>
+		</div>
+		</div>
+		<div class="w3-row">
+		<div class="w3-container w3-quarter w3-right-align" style="width:30px">
+			
+		</div>
+		<div class="w3-container w3-threequarter w3-left-align">	
+			<input class="w3-input w3-border w3 padding-16" type="text" placeholder="전화번호" name="phone"><br/>
+		</div>
+		</div>
+		<p class="w3-right-align"><strong><font color="red">*</font></strong>표시가 된 항목은 필수 입력입니다.</p>
+</div>
+<br>
 </div>
 <center>
-<br>
-<div class="w3-blue w3-margin-top w3-animate-zoom" style="max-width:300px; height:100px">
+<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px;">
+<div class="w3-margin-top w3-animate-zoom" style="max-width:300px; height:100px">
 <br>      
       <input type="submit" value="가입하기">
       <input type="reset" value="다시작성"> 
+</div>
 </div>
 </center>
 </form>

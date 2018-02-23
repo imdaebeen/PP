@@ -1,5 +1,39 @@
+<%@page import="jboard.BoardDBBean"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+	request.setCharacterEncoding("euc-kr");
+%>
+<%
+	String boardid = request.getParameter("boarid");
+	if(boardid==null) boardid ="2";
+%>
+<%
+	int pageSize =5;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String pageNum = request.getParameter("pageNum");
+	if(pageNum == null || pageNum == ""){
+	pageNum = "1";
+	}
+	
+	int currentPage = Integer.parseInt(pageNum);
+	int startRow = (currentPage - 1)*pageSize+1;
+	int endRow = currentPage*pageSize;
+	int count = 0;
+	int number = 0;
+	
+	List articleList = null;
+
+	BoardDBBean dbpro = BoardDBBean.getInstance();
+	count = dbpro.getArticleCount(boardid);
+	if(count > 0){
+		articleList = dbpro.getArticles(startRow, endRow, boardid);
+	}
+	number = count -(currentPage-1)*pageSize;
+	
+%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,6 +61,15 @@ background-color:red;
 </head>
 <body>
 <%@include file="/view/header.jsp"%>
+<%
+		if(count==0){
+	%>
+		<table class="w3-table-bordered" style="width:900px">
+			<tr class="w3-grey">
+			<td align="center">회원이 아무도 없어용</td>
+		</table>
+  
+	<% }else{ %>
 <div class="w3-row" id="up">
   <div class="w3-third w3-container w3-white w3-right-align">
     <h2><b>자주하는 질문(FAQ)</b></h2> 
@@ -58,7 +101,7 @@ background-color:red;
 <div class="w3-left-align" style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>총 3건(1/1 page)</h6>
+    <h6>총 <%=count%>건(1/1 page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -85,11 +128,10 @@ background-color:red;
  <div class="w3-container w3-padding-24">
   <table class="w3-table w3-border">
     <tr class="w3-blue w3-border">
-      <th>번호</th>
-      <th>분류</th>
-      <th>제목</th>
-      <th>등록일</th>
-      <th>조회수</th>
+      <td>번호</td>
+      <td>제목</td>
+      <td>등록일</td>
+      <td>조회수</td>
     </tr>
     </div>
     <tr>
@@ -114,6 +156,18 @@ background-color:red;
       <td>500</td>
     </tr>
   </table>
+  <% 
+ if(session.getAttribute("MEMBERID") == null){
+	
+	}else{
+	%>
+	<% 
+	if(session.getAttribute("MEMBERID").equals("admin")){
+	%>	
+	<div class="w3-right-align">
+	<a href="/PersonalProject/boardfaq/boardfaqForm.jsp" class="w3-button w3-wide">글쓰기</a>
+	</div>
+	<% } }%>
 </div>
 </div>
 <div class="w3-padding-32">
