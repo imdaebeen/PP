@@ -1,3 +1,4 @@
+<%@page import="jboard.BoardDataBean"%>
 <%@page import="jboard.BoardDBBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -133,29 +134,22 @@ background-color:red;
       <td>등록일</td>
       <td>조회수</td>
     </tr>
+    <% 
+		for(int i=0;i<articleList.size();i++) { 
+			BoardDataBean article = (BoardDataBean)articleList.get(i);
+   	%>
     </div>
     <tr>
-      <td>36</td>
-      <td>전세자금대출</td>
-      <td>상환방식에 따라 상환액과 이자부담액에 차이가 발생하나요?</td>
-      <td>2017-10-17</td>
-      <td>564</td>
+      <td><%=number--%></td>
+      <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getSubject()%></td>
+      <td><%=sdf.format(article.getReg_date())%></td>
+      <td><%=article.getReadcount() %></td>
     </tr>
-    <tr>
-      <td>35</td>
-      <td>예/적금</td>
-      <td>나도 비과세 적용을 받을 수 잇나요?</td>
-      <td>2017-10-17</td>
-      <td>300</td>
-    </tr>
-    <tr>
-<td>37</td>
-      <td>주택담보대출</td>
-      <td>고정금리와 변동금리는 어떻게 구분되나요</td>
-      <td>2017-10-17</td>
-      <td>500</td>
-    </tr>
+    <% 
+		}
+    %>
   </table>
+
   <% 
  if(session.getAttribute("MEMBERID") == null){
 	
@@ -167,9 +161,51 @@ background-color:red;
 	<div class="w3-right-align">
 	<a href="/PersonalProject/boardfaq/boardfaqForm.jsp" class="w3-button w3-wide">글쓰기</a>
 	</div>
-	<% } }%>
+	<% 
+		} 
+	}
+}
+	%>
+<div class="w3-center">
+		<%
+		int bottomLine =3; 
+		if(count > 0){
+		int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
+		int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
+		int endPage = startPage + bottomLine -1;
+		
+		if(endPage > pageCount) 
+			endPage = pageCount;
+		if(startPage > bottomLine){	
+		%>
+		<a href="board1.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
+		<% 
+			} 
+		
+			for(int i = startPage; i<= endPage; i++ ){ 
+		%>
+			<a href="mList.jsp?pageNum=<%=i%>">
+			<%
+			if(i != currentPage) {
+				out.print("["+i+"]");
+			}else{ 
+				out.print("<font color='red'>["+i+"]</font>");
+			}
+			%>
+			</a>
+		<%
+			}
+		if(endPage < pageCount){ 
+		%>
+		<a href="board1.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
+		<% 
+			}
+		}
+		%>
+</div>	
 </div>
 </div>
+
 <div class="w3-padding-32">
 	<div class="w3-border" style="background-color:#B2CCFF">
 		<ul>
