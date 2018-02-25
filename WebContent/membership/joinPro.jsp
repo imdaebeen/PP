@@ -21,7 +21,6 @@
 	
 		dbPro.insertArticle(article);
 	%>
-<a href="/PersonalProject/view/Main.jsp"><h2>가입을 환영합니다.</h2></a>
-<a href="/PersonalProject/membership/mList.jsp"><h2>회원목록 보기</h2></a>
+<meta http-equiv="Refresh" content="0;url=../view/Main.jsp">
 </body>
 </html>

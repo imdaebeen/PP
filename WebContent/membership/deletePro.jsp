@@ -21,7 +21,7 @@
 		if(check==1){
 	%>
 		
-		<meta http-equiv="Refresh" content="0;url=mList.jsp?pageNum=<%=pageNum %>">
+		<meta http-equiv="Refresh" content="0;url=../view/Main.jsp">
 <%
 	}else {
 %>	

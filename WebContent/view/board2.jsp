@@ -34,6 +34,12 @@
 	}
 	number = count -(currentPage-1)*pageSize;
 	
+	int bottomLine =3; 
+	if(count > 0){
+	int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
+	int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
+	int endPage = startPage + bottomLine -1;
+	
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -62,7 +68,7 @@ background-color:red;
 </head>
 <body>
 <%@include file="/view/header.jsp"%>
-<%
+	<%
 		if(count==0){
 	%>
 		<table class="w3-table-bordered" style="width:900px">
@@ -102,7 +108,7 @@ background-color:red;
 <div class="w3-left-align" style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>총 <%=count%>건(1/1 page)</h6>
+    <h6>총 <%=count%>건(<%=currentPage%>/<%=endPage %> page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -141,7 +147,7 @@ background-color:red;
     </div>
     <tr>
       <td><%=number--%></td>
-      <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getSubject()%></td>
+      <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>&boardid=<%=boardid %>"><%=article.getSubject()%></a></td>
       <td><%=sdf.format(article.getReg_date())%></td>
       <td><%=article.getReadcount() %></td>
     </tr>
@@ -151,15 +157,13 @@ background-color:red;
   </table>
 
   <% 
- if(session.getAttribute("MEMBERID") == null){
+ 	if(session.getAttribute("MEMBERID") == null){
 	
-	}else{
-	%>
-	<% 
-	if(session.getAttribute("MEMBERID").equals("admin")){
+		}else{ 
+			if(session.getAttribute("MEMBERID").equals("admin")){
 	%>	
 	<div class="w3-right-align">
-	<a href="/PersonalProject/boardfaq/boardfaqForm.jsp" class="w3-button w3-wide">글쓰기</a>
+	<a href="/PersonalProject/board/boardForm.jsp" class="w3-button w3-wide">글쓰기</a>
 	</div>
 	<% 
 		} 
@@ -168,23 +172,19 @@ background-color:red;
 	%>
 <div class="w3-center">
 		<%
-		int bottomLine =3; 
-		if(count > 0){
-		int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
-		int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
-		int endPage = startPage + bottomLine -1;
+		
 		
 		if(endPage > pageCount) 
 			endPage = pageCount;
 		if(startPage > bottomLine){	
 		%>
-		<a href="board1.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
+		<a href="board2.jsp?pageNum=<%=startPage-bottomLine %>">[이전]</a>
 		<% 
 			} 
 		
 			for(int i = startPage; i<= endPage; i++ ){ 
 		%>
-			<a href="mList.jsp?pageNum=<%=i%>">
+			<a href="board2.jsp?pageNum=<%=i%>">
 			<%
 			if(i != currentPage) {
 				out.print("["+i+"]");
@@ -197,7 +197,7 @@ background-color:red;
 			}
 		if(endPage < pageCount){ 
 		%>
-		<a href="board1.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
+		<a href="board2.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
 		<% 
 			}
 		}

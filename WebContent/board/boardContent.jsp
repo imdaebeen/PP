@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%	
-		String boardid = request.getParameter("boarid");
+		String boardid = request.getParameter("boardid");
 		if(boardid==null) boardid ="1";
 %>
 <%
@@ -13,7 +13,6 @@
 		if(pageNum == null || pageNum==""){
 			pageNum = "1";
 		}
-	
 	try{
 			BoardDBBean dbPro = BoardDBBean.getInstance();
 			BoardDataBean article = dbPro.getArticles(num,boardid,"content");
@@ -37,28 +36,121 @@ textarea {
 <%@include file="/view/header.jsp"%>
 <center>
 <br>
-<div class="w3-text-blue"><b>글내용 보기</b> </div>
-	<table class="w3-table w3-border">
+<% 
+if(session.getAttribute("MEMBERID").equals("admin")){
+%>
+<div class="w3-row">
+<div class="w3-third w3-container w3-white w3-right-align">
+    <%
+		if(boardid=="1"){
+	%>
+    <h2><b>공지사항</b></h2>
+    <%
+		}else{
+	%>
+	<h2><b>자주하는 질문(FAQ)</b></h2>
+	<%
+		}
+	%>
+</div>
+</div>
+<hr>
+	<table class="w3-table w3-border" style="width:800px; height:400px;">
 		<tr>
-			<td class="w3-blue">제목</td>
-			<td><input type="text" name="subject" value="<%=article.getSubject()%>"></td>
+			<td class="w3-blue w3-border" style="height:10px;width:100px">제목</td>
+			<td class="w3-border"><input type="text" name="subject" value="<%=article.getSubject()%>"></td>
 		</tr>
 		<tr >
-			<td class="w3-blue">내용</td>
-			<td><textarea rows="20" cols="45" name="content"><%=article.getContent()%></textarea> </td>
-		</tr>
+			<td class="w3-blue w3-border" style="height:100px;width:100px">내용</td>
+			<td class="w3-border"><textarea rows="20" cols="100" name="content"><%=article.getContent()%></textarea> </td>
+		</tr>	
 	</table>
-			<input type="submit" value="글 수정" >
-			<input type="button" value="글 삭제" onclick="document.location.href='bdeleteform.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
-  			<input type="reset" value="다시 작성">
- 			<input type="button" value="목록보기" onclick="document.location.href='board1.jsp?pageNum=<%=pageNum%>'">
- 		
-			<%
+			<br/>
+			<input class="w3-button w3-border w3-blue" type="submit" value="글 수정" >
+			<input class="w3-button w3-border w3-blue" type="button" value="글 삭제" onclick="document.location.href='bdeleteform.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
+  	
+		<%
+		}else if(session.getAttribute("MEMBERID") == null){
+		%>
+		<div class="w3-row">
+			<div class="w3-third w3-container w3-white w3-right-align">
+    		<%
+		if(boardid=="1"){
+	%>
+    <h2><b>공지사항</b></h2>
+    <%
+		}else{
+	%>
+	<h2><b>자주하는 질문(FAQ)</b></h2>
+	<%
+		}
+	%>
+			</div>
+			</div>
+			<hr>	
+			<table class="w3-table w3-border" style="width:800px; height:400px;">
+		<tr>
+			<td class="w3-blue w3-border" style="height:10px;width:100px">제목</td>
+			<td class="w3-border"><%=article.getSubject()%></td>
+		</tr>
+		<tr >
+			<td class="w3-blue" style="height:100px;width:100px">내용</td>
+			<td><%=article.getContent()%></td>
+		</tr>	
+	</table>
+ 		<%
+		}else{
+		%>	
+		<div class="w3-row">
+			<div class="w3-third w3-container w3-white w3-right-align">
+    		<%
+		if(boardid=="1"){
+	%>
+    <h2><b>공지사항</b></h2>
+    <%
+		}else{
+	%>
+	<h2><b>자주하는 질문(FAQ)</b></h2>
+	<%
+		}
+	%>
+			</div>
+			</div>
+			<hr>	
+			<table class="w3-table w3-border" style="width:800px; height:400px;">
+		<tr>
+			<td class="w3-blue w3-border" style="height:10px;width:100px">제목</td>
+			<td class="w3-border"><%=article.getSubject()%></td>
+		</tr>
+		<tr >
+			<td class="w3-blue" style="height:100px;width:100px">내용</td>
+			<td><%=article.getContent()%></td>
+		</tr>	
+	</table>
+	<% 
+		}
+ 	%>	
+	 </form>		
+</center>
+		<%
 			}catch(Exception e){
 			}
 			%>
-	 </form>		
-</center>
+	<br/><br/><br/>
+		<center>
+	<%
+		if(boardid=="1"){
+	%>
+	<a href = ../view/board1.jsp class="w3-bar-item w3-button w3-blue">목록</a>
+	<%
+		}else{
+	%>
+	<a href = ../view/board2.jsp class="w3-bar-item w3-button w3-blue">목록</a>
+	<%
+		}
+	%>
+	<br/><br/><br/>
+		</center>
 <%@include file="/view/footer.jsp"%>
 </body>
 </html>

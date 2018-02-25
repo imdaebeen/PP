@@ -80,7 +80,7 @@ public class BoardDBBean {
 			pstmt.setString(3, article.getSubject());
 			pstmt.setString(4, article.getContent());
 			pstmt.setInt(5, article.getReadcount());
-			pstmt.setString(6, article.getPasswd());
+			pstmt.setString(6,article.getPasswd());
 			pstmt.executeUpdate();
 			System.out.println(article);
 	}catch (Exception e) {
@@ -227,8 +227,8 @@ public int deleteArticle(int num, String passwd,String boardid) throws Exception
 	pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, passwd);
-	
 			x=pstmt.executeUpdate();
+			
 	}catch (Exception ex) {
 		// TODO: handle exception
 		ex.printStackTrace();

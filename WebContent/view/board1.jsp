@@ -34,7 +34,12 @@
 	}
 	number = count -(currentPage-1)*pageSize;
 	
-%>    
+	int bottomLine =3; 
+	if(count > 0){
+	int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
+	int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
+	int endPage = startPage + bottomLine -1;
+	%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -87,7 +92,7 @@ li{
 	<div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>ÃÑ <%=count%>°Ç(1/1 page)</h6>
+    <h6>ÃÑ <%=count%>°Ç(<%=currentPage%>/<%=endPage %> page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -139,15 +144,13 @@ li{
 	<div class="w3-right-align">
 	<a href="/PersonalProject/board/boardForm.jsp" class="w3-button w3-wide">±Û¾²±â</a>
 	</div>
-	<%} } }%>
+<%
+			} 
+		} 
+  	}
+%>
 <div class="w3-center">
 		<%
-		int bottomLine =3; 
-		if(count > 0){
-		int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
-		int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
-		int endPage = startPage + bottomLine -1;
-		
 		if(endPage > pageCount) 
 			endPage = pageCount;
 		if(startPage > bottomLine){	
@@ -158,7 +161,7 @@ li{
 		
 			for(int i = startPage; i<= endPage; i++ ){ 
 		%>
-			<a href="mList.jsp?pageNum=<%=i%>">
+			<a href="board1.jsp?pageNum=<%=i%>">
 			<%
 			if(i != currentPage) {
 				out.print("["+i+"]");

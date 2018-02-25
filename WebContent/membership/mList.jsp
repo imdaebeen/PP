@@ -56,7 +56,8 @@ body{
 </style>
 </head>
 <body>
-  <div class="w3-container w3-center w3-margin-top">
+<%@include file="../view/adminpage.jsp"%>
+  <div class="w3-container w3-center">
   <strong><h2 class="w3-text-blue"><b>한눈에 회원목록</b></h2></strong>
   <strong><h3 class="w3-text-blue"><b>(전체 회원수 : <font color="black"><%=count %></font>)</b></h3></strong>
   <%
@@ -131,6 +132,6 @@ body{
 		}
 		%>
 </div>
-
+<br>
 </body>
 </html>

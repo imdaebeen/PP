@@ -1,6 +1,10 @@
+<%@page import="jmembership.MemberDataBean"%>
+<%@page import="jmembership.MemberDBBean"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <% request.setCharacterEncoding("euc-kr"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,7 +59,7 @@ function logout() {
 	  <%	
 	  	}else{
 	  %>
-	  <a href="#" class="w3-bar-item w3-button"><img src="../view/image/currency-krw.png"></i> 마이페이지</a>
+	  <a href="../view/mypage.jsp" class="w3-bar-item w3-button"><img src="../view/image/currency-krw.png"></i> 마이페이지</a>
 	  <% } %>
 	 
 <%	} %>	  	      

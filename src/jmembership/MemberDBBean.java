@@ -179,6 +179,37 @@ public class MemberDBBean {
 		}
 		return article;
 	}
+	public MemberDataBean getArticles1(String memberid,String boardid) {
+		Connection con = getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberDataBean article =null;
+		String sql="";
+		try {
+			con=getConnection();
+			sql="select * from memberList where memberid =? and boardid = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, memberid);
+			pstmt.setString(2, boardid);
+			rs=pstmt.executeQuery();
+					
+			if(rs.next()) {
+				article = new MemberDataBean();
+				article.setNum(rs.getInt("num"));
+				article.setMemberid(rs.getString("memberid"));
+				article.setPasswd(rs.getString("passwd"));
+				article.setName(rs.getString("name"));
+				article.setEmail(rs.getString("email"));
+				article.setPhone(rs.getString("phone"));
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			close(con, rs, pstmt);
+		}
+		return article;
+	}
 public int updateArticle(MemberDataBean article) {
 		
 		Connection con = null;
@@ -196,9 +227,8 @@ public int updateArticle(MemberDataBean article) {
 		pstmt.setString(4, article.getPhone());
 		pstmt.setInt(5, article.getNum());
 		pstmt.setString(6, article.getPasswd());
-
 		chk=pstmt.executeUpdate();
-		
+		System.out.println(chk);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

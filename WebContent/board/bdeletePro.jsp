@@ -1,9 +1,7 @@
-
 <%@page import="jboard.BoardDBBean"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <% request.setCharacterEncoding("euc-kr"); %>
-	
 	<%
 		String boardid = request.getParameter("boarid");
 		if(boardid==null) boardid = "1";
@@ -11,7 +9,6 @@
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum == null || pageNum ==""){
 			pageNum = "1";}
-		
 	%>
 	<% 
 		int num = Integer.parseInt(request.getParameter("num"));

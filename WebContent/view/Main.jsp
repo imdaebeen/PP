@@ -157,14 +157,13 @@
   <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
 
+
 <br>
 <div>
 <a href="#" class="w3-button w3-blue w3-padding-large w3-margin-bottom"><i class="fa fa-arrow-up"></i>To the top</a>
 </div>
 </center>
 </div>
-
-
 <br>
 <!-- го╢э -->
 <%@include file="/view/footer.jsp"%>

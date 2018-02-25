@@ -14,21 +14,11 @@ body{
 </head>
 <body>
 <%@include file="/view/header.jsp"%>
-<center>
-	<div class="w3-border w3-center w3-margin-top" style="width:800px; height:800px">
-		<div class="w3-blue">
-		<strong><font size=5>관리자페이지</font></strong>
-		</div>
-		<div class="w3-row">
-  			<div class="w3-half w3-container w3-border">
-   				<a href="../membership/mList.jsp" class="w3-bar-item w3-button w3-block" style="width:400"><font size=4>회원정보 수정</font></a>
-  			</div>
-  		<div class="w3-half w3-container w3-border">
-    			<a href="../board/boardForm.jsp" class="w3-bar-item w3-button w3-block" style="width:400"><font size=4>게시물 업로드</font></a> 
-  			</div>
-		</div>
-	</div>
-<%@include file="/view/footer.jsp"%>	
-</center>
+<br>
+<div class="w3-sidebar w3-bar-block" style="width:15%">
+  <h2 class="w3-bar-item w3-text-blue"><b>관리자 페이지</b></h2>
+  <a href="../membership/mList.jsp" class="w3-bar-item w3-button">회원정보 수정</a>
+  <a href="../board/boardForm.jsp" class="w3-bar-item w3-button">게시물 업로드</a>
+</div>
 </body>
 </html>

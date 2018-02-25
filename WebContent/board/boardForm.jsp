@@ -38,6 +38,7 @@ textarea {
 </style>
 </head>
 <body>
+<%@include file="../view/adminpage.jsp"%>
 <center>
 <h1 class="w3-text-blue w3-animate-zoom w3-padding-24">게시글 등록</h1>
 </center>

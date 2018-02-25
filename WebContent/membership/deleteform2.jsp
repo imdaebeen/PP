@@ -12,7 +12,7 @@ int num = Integer.parseInt(request.getParameter("num"));
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="../view/adminpage.jsp"%>
+<%@include file="../view/header.jsp"%>
 <center>
 <div class="w3-container w3-text-blue">
 	<h2><b>회원삭제</b></h2><br>
