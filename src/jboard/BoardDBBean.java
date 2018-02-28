@@ -237,4 +237,35 @@ public int deleteArticle(int num, String passwd,String boardid) throws Exception
 	}
 	return x;
 	}
+public BoardDataBean getArticlesmi(int num,String boardid) {
+	Connection con = getConnection();
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	BoardDataBean article =null;
+	String sql="";
+	try {
+		con=getConnection();
+		
+		sql="select * from boardfaq where num=(select max(num) from boardfaq where num < ? and boardid=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, num);
+		pstmt.setString(2, boardid);
+		rs=pstmt.executeQuery();
+				
+		if(rs.next()) {
+			article = new BoardDataBean();
+			article.setNum(rs.getInt("num"));
+			article.setSubject(rs.getString("subject"));
+			article.setContent(rs.getString("content"));
+			article.setReadcount(rs.getInt("readcount"));
+		}
+		System.out.println(article);
+	}catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}finally {
+		close(con, rs, pstmt);
+	}
+	return article;
+}
 }

@@ -14,8 +14,11 @@
 			pageNum = "1";
 		}
 	try{
+		
 			BoardDBBean dbPro = BoardDBBean.getInstance();
 			BoardDataBean article = dbPro.getArticles(num,boardid,"content");
+		/* 	BoardDataBean article1 = dbPro.getArticlesmi(num, boardid); */
+			
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,6 +58,7 @@ if(session.getAttribute("MEMBERID").equals("admin")){
 </div>
 </div>
 <hr>
+
 	<table class="w3-table w3-border" style="width:800px; height:400px;">
 		<tr>
 			<td class="w3-blue w3-border" style="height:10px;width:100px">제목</td>
@@ -67,7 +71,7 @@ if(session.getAttribute("MEMBERID").equals("admin")){
 	</table>
 			<br/>
 			<input class="w3-button w3-border w3-blue" type="submit" value="글 수정" >
-			<input class="w3-button w3-border w3-blue" type="button" value="글 삭제" onclick="document.location.href='bdeleteform.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
+			<input class="w3-button w3-border w3-blue" type="button" value="글 삭제" onclick="document.location.href='bdeleteform.jsp?num=<%=num%>&pageNum=<%=pageNum%>&boardid=<%=boardid%>'">
   	
 		<%
 		}else if(session.getAttribute("MEMBERID") == null){
@@ -130,8 +134,22 @@ if(session.getAttribute("MEMBERID").equals("admin")){
 	<% 
 		}
  	%>	
-	 </form>		
+	 </form>
+	 
+<br/><br/><br/>
+<div class="w3-row">
+	<div class="w3-half">
+	<input type="button" value="이전 글" class="w3-button w3-blue" onclick="document.location.href='boardContent.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
+	</div>
+	<div class="w3-half">
+	<input type="button" value="다음 글" class="w3-button w3-blue" onclick="document.location.href='boardContent.jsp?num=<%=num%>&pageNum=<%=pageNum%>'">
+	</div>
+</div>				
+	
+</div>
 </center>
+		
+
 		<%
 			}catch(Exception e){
 			}
@@ -141,15 +159,16 @@ if(session.getAttribute("MEMBERID").equals("admin")){
 	<%
 		if(boardid=="1"){
 	%>
-	<a href = ../view/board1.jsp class="w3-bar-item w3-button w3-blue">목록</a>
+		<a href = ../view/board1.jsp class="w3-bar-item w3-button w3-blue">목록</a>
 	<%
 		}else{
 	%>
-	<a href = ../view/board2.jsp class="w3-bar-item w3-button w3-blue">목록</a>
+		<a href = ../view/board2.jsp class="w3-bar-item w3-button w3-blue">목록</a>
 	<%
 		}
 	%>
 	<br/><br/><br/>
+
 		</center>
 <%@include file="/view/footer.jsp"%>
 </body>

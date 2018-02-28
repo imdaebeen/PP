@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("euc-kr"); %>
 	
 <%
-		String boardid = request.getParameter("boarid");
+		String boardid = request.getParameter("boardid");
 		if(boardid==null) boardid = "1";
 		
 		String pageNum = request.getParameter("pageNum");
@@ -20,14 +20,20 @@
 	<%
 		BoardDBBean dbPro = BoardDBBean.getInstance();
 	
-		int chk=dbPro.updateArticle(article);
+		int chk= dbPro.updateArticle(article);
 		
 	%>
 <%
 	if(chk==1){
-%>	
+		if(boardid=="1"){
+%>
 <meta http-equiv="Refresh" content="0;url=../view/board1.jsp?pageNum=<%=pageNum %>">
 <%
+		}else{
+%>
+<meta http-equiv="Refresh" content="0;url=../view/board2.jsp?pageNum=<%=pageNum %>">
+<% 			
+		}
 	}else {
 %>	
 <script>

@@ -8,7 +8,7 @@
 	request.setCharacterEncoding("euc-kr");
 %>
 <%
-	String boardid = request.getParameter("boarid");
+	String boardid = request.getParameter("boardid");
 	if(boardid==null) boardid ="2";
 %>
 <%
@@ -39,7 +39,7 @@
 	int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
 	int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
 	int endPage = startPage + bottomLine -1;
-	
+	int totalPage = count/pageSize+1;
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -63,7 +63,22 @@ li{
 #op{
 background-color:red;
 }
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: white;
+}
 </style>
 </head>
 <body>
@@ -108,7 +123,7 @@ background-color:red;
 <div class="w3-left-align" style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>총 <%=count%>건(<%=currentPage%>/<%=endPage %> page)</h6>
+    <h6>총 <%=count%>건(<%=currentPage%>/<%=totalPage %> page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -133,12 +148,12 @@ background-color:red;
 	
  <div class="w3-padding-24 w3-left-align">
  <div class="w3-container w3-padding-24">
-  <table class="w3-table w3-border">
+  <table id="customers">
     <tr class="w3-blue w3-border">
-      <td>번호</td>
+      <td style="width:60px">번호</td>
       <td>제목</td>
-      <td>등록일</td>
-      <td>조회수</td>
+      <td style="width:150px">등록일</td>
+      <td style="width:100px">조회수</td>
     </tr>
     <% 
 		for(int i=0;i<articleList.size();i++) { 
@@ -215,7 +230,7 @@ background-color:red;
 			<li><label for="answer3"><input type="radio" name="answer" id="answer3" value="3" class="radioType"/> 보통</label></li>
 			<li><label for="answer4"><input type="radio" name="answer" id="answer4" value="2" class="radioType"/> 불만족</label></li>
 			<li><label for="answer5"><input type="radio" name="answer" id="answer5" value="1" class="radioType"/> 매우 불만족</label></li>
-			<li><input type="button" id="btnPoll" class="float-R" value="참여하기" /></li>
+			<li><input type="button" id="btnPoll" class="float-R" value="참여하기"/></li>
 		</ul>
 </div>
 </div>		

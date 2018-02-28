@@ -3,6 +3,7 @@
 <% 
 int num = Integer.parseInt(request.getParameter("num"));
 String pageNum = request.getParameter("pageNum"); 
+String boardid = request.getParameter("boardid");
 %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,28 +12,29 @@ String pageNum = request.getParameter("pageNum");
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="../view/adminpage.jsp"%>
 <center>
-<div class="w3-container">
-	<b>글 삭제</b><br>
-	<h2>정말삭제하시겠습니까?</h2>
+<div class="w3-container w3-text-blue">
+	<h2><b>게시글 삭제</b></h2><br>
+	<hr>
+</div>
 <form method="post" name="bdeleteform" 
 		action="bdeletePro.jsp?pageNum=<%=pageNum %>" onsubmit="return deleteSave()" >
-		<table class="table-bordered" width="360">
-			<tr height="30">
-				<td align=center><b>비밀번호를 입력해 주세요.</b></td>
-			</tr>
-			<tr height="30">
-				<td align=center>비밀번호:
+<input type="hidden" name="boardid" value="<%=boardid %>"/>		
+			<div align=center class="w3-text-blue">
+			<h3><b>비밀번호를 입력해 주세요.</b></h3>
+			</div>
+				
+				<div style="height:30">
+				<b>비밀번호:</b>
 				<input type="password" name="passwd" size="8" maxlength="12">
 				<input type="hidden" name="num" value="<%=num %>">
-				</td>
-			</tr>
-			<tr height="30">
-				<td align=center>
-					<input type="submit" value="글 삭제 ">
-				</td>	
-			</tr>	
-		</table>
+				</div>
+			<br/>
+			<div style="height:30">
+				<input type="submit" value="글 삭제" class="w3-button w3-blue">
+				<input type="button" value="메인페이지이동" class="w3-button w3-blue" onclick="document.location.href='../view/Main.jsp'">
+			</div>
 	</form>
 </center>
 </div>

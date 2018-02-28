@@ -8,7 +8,7 @@
 	request.setCharacterEncoding("euc-kr");
 %>
 <%
-	String boardid = request.getParameter("boarid");
+	String boardid = request.getParameter("boardid");
 	if(boardid==null) boardid ="1";
 %>
 <%
@@ -39,6 +39,8 @@
 	int pageCount = count/pageSize +(count%pageSize == 0 ? 0 : 1);
 	int startPage = 1 +(currentPage -1) /bottomLine*bottomLine;
 	int endPage = startPage + bottomLine -1;
+	int totalPage = count/pageSize+1;
+		
 	%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -92,7 +94,7 @@ li{
 	<div class="w3-left-align"style="border-bottom: 1px dashed #E6E6E6">
     <div class="w3-row">
     <div class="w3-half w3-container">
-    <h6>총 <%=count%>건(<%=currentPage%>/<%=endPage %> page)</h6>
+    <h6>총 <%=count%>건(<%=currentPage%>/<%=totalPage %> page)</h6>
     </div>
     <div class="w3-half w3-container w3-right-align">
     <div class="w3-row">
@@ -116,10 +118,10 @@ li{
 	<br>
  <table id="customers">
   <tr class="w3-blue">
-    <td>번호</td>
+    <td style="width:60px">번호</td>
     <td>제목</a></td>
-    <td>등록일</td>
-    <td>조회수</td>
+    <td style="width:100px">등록일</td>
+    <td style="width:70px">조회수</td>
   </tr>
   <% 
 		for(int i=0;i<articleList.size();i++) { 
@@ -127,7 +129,7 @@ li{
    %>
   <tr>
     <td><%=number--%></td>
-    <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>"><%=article.getSubject()%></td>
+    <td><a href="/PersonalProject/board/boardContent.jsp?num=<%=article.getNum()%>&pageNum=<%=currentPage %>&boardid=<%=boardid%>"><%=article.getSubject()%></td>
     <td><%=sdf.format(article.getReg_date())%></td>
     <td><%=article.getReadcount() %></td>
   </tr>
@@ -151,6 +153,7 @@ li{
 %>
 <div class="w3-center">
 		<%
+		
 		if(endPage > pageCount) 
 			endPage = pageCount;
 		if(startPage > bottomLine){	
@@ -176,9 +179,11 @@ li{
 		%>
 		<a href="board1.jsp?pageNum=<%=startPage+bottomLine %>">[다음]</a>
 		<% 
-			}
 		}
+	}
 		%>
+</div>
+</div>
 </div>
 <div class="w3-padding-32">
 	<div class="w3-border" style="background-color:#B2CCFF">

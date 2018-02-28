@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style type="text/css">
 h2{
 	text-align:center;
@@ -69,9 +70,27 @@ input[type=submit]:hover{
 </div>
 
 <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:500px;">
-<div class="w3-margin-top w3-animate-zoom" style="max-width:300px; height:100px">
+<div class="w3-margin-top w3-animate-zoom" style="max-width:300px; height:150px">
 <br>      
       <input type="submit" value="로그인">
+      <a id="kakao-login-btn"></a>
+<a href="http://developers.kakao.com/logout"></a>
+<script type='text/javascript'>
+  //<![CDATA[
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('95021fb78b585a72a2c54e93ec655b4f');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+        alert("성공?");
+      },
+      fail: function(err) {
+         /* alert(JSON.stringify(err)); */
+      }
+    });
+  //]]>
+</script>
 </div>
 </div>
 <br>
